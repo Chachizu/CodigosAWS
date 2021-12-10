@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  lambaAWS:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs14.x
+      CodeUri: .
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::639528490025:role/service-role/lambaAWS-role-088fdadw'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: $disconnect
+        Api2:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: user
+        Api3:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: $default
+        Api4:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: $connect
